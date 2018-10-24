@@ -94,17 +94,22 @@ if(inputSource == '0'):
         _,f = c.read()
         gray = detectFaceFromArray(f)
         if(gray is None):
+            print "No Face Detected"
             continue
         resizedImage = resizeImageFromArray(gray)
         if(resizedImage is None):
+            print "Resizing Failed"
             continue
-        prediction,_ = model.predict(resizedImage)
-        if(prediction == 0):
-            print("The Image is of Male")
-        elif(prediction == 1):
-            print("The Image is of Female")
-        else:
-            print("The Image is Undetermined")
+        try:
+            prediction,_ = model.predict(resizedImage)
+            if(prediction == 0):
+                print("The Image is of Male")
+            elif(prediction == 1):
+                print("The Image is of Female")
+            else:
+                print("The Image is Undetermined")
+        except:
+            print "That is not human"
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
     cv.destroyAllWindows()
@@ -112,10 +117,16 @@ if(inputSource == '0'):
 
 else:
     gray = detectFaceFromArray(img)
-    prediction,_ = model.predict(resizeImageFromArray(gray))
-    if(prediction == 0):
-        print("The Image is of Male")
-    elif(prediction == 1):
-        print("The Image is of Female")
-    else:
-        print("The Image is Undetermined")
+    if(gray is None):
+        print "No Face Detected"
+        exit()
+    try:
+        prediction,_ = model.predict(resizeImageFromArray(gray))
+        if(prediction == 0):
+            print("The Image is of Male")
+        elif(prediction == 1):
+            print("The Image is of Female")
+        else:
+            print("The Image is Undetermined")
+    except:
+        print("That is not human")
