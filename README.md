@@ -6,7 +6,7 @@ Uses OpenCV library for Python to process images or camera capture to detect the
 
 # PreRequisites
 Python 2.7.12
-OpenCV 3.1.0 (Read Installing OpenCV on Ubuntu for help on installing OpenCV on Ubuntu. Windows and Mac setups are similar and help available on stackoverflow and other pages)
+OpenCV 3.1.0 (Read Installing OpenCV on Ubuntu for help on [installing OpenCV on Ubuntu](https://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/). Windows and Mac setups are similar and help available on stackoverflow and other pages)
 
 # Use
 Run program from the command. It takes 3 parameters
